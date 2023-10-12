@@ -60,18 +60,6 @@ public class Main {
         return min;
     }
 
-    private static long getFourSide() {
-        int sum = Arrays.stream(arr).sum();
-        long max = 0;
-        for (int i = 0; i < 6; i++) {
-            for (int j = i + 1; j < 6; j++) {
-                if (i + j == 5)
-                    max = Math.max(max, arr[i] + arr[j]);
-            }
-        }
-        return sum - max;
-    }
-
     private static long getFiveSide() {
         int sum = Arrays.stream(arr).sum();
         int max = Arrays.stream(arr).max().getAsInt();
