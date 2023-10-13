@@ -26,7 +26,7 @@ public class Main {
         Arrays.sort(weight);
         Arrays.sort(boxWeight);
         int ans = 1;
-        if (Arrays.stream(weight).max().getAsInt() < boxWeight[M - 1])
+        if (weight[N - 1] < boxWeight[M - 1])
             ans = -1;
         else {
             int carry = 0;
