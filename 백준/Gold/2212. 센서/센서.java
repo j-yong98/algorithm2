@@ -29,4 +29,8 @@ public class Main {
         System.out.println(ans);
         br.close();
     }
+    /**
+     * N이 K라면 한 기지국당 한개를 커버할 수 있지만
+     * 그게 아니라면 하나의 기지국은 N - K개의 기지국을 커버해야된다
+     */
 }
