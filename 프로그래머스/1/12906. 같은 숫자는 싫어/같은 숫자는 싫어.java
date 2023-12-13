@@ -2,14 +2,22 @@ import java.util.*;
 import java.util.stream.IntStream;
 public class Solution {
     int N;
+    Stack<Integer> s = new Stack<>();
     public int[] solution(int[] arr) {
-        List<Integer> answer = new ArrayList<>();
         N = arr.length;
-        answer.add(arr[0]);
-        for (int i = 1; i < N; i++) {
-            if (arr[i] == arr[i - 1]) continue;
-            answer.add(arr[i]);
+        for (int i = 0; i < N; i++) {
+            if (s.isEmpty()) {
+                s.add(arr[i]);
+            } else {
+                if (s.peek() == arr[i]) continue;
+                s.add(arr[i]);
+            }
         }
-        return answer.stream().mapToInt(Integer::intValue).toArray();
+        int[] answer = new int[s.size()];
+        int idx = s.size() - 1;
+        while (!s.isEmpty()) {
+            answer[idx--] = s.pop();
+        }
+        return answer;
     }
 }
