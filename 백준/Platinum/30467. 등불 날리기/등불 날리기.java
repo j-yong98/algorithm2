@@ -82,23 +82,5 @@ public class Main {
         update(root * 2 + 1, mid + 1, e, idx, val);
     }
 
-    private static Node[] change(int[] val) {
-        int len = val.length;
-        Node[] nodes = new Node[len];
-        for (int i = 0; i < len; i++) {
-            nodes[i] = new Node(i, val[i]);
-        }
-        return nodes;
-    }
-
-    static class Node {
-        int idx;
-        int val;
-
-        public Node(int idx, int val) {
-            this.idx = idx;
-            this.val = val;
-        }
-    }
 }
 
