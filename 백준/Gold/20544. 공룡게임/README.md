@@ -16,7 +16,7 @@
 
 ### 문제 설명
 
-<p dir="ltr" style="text-align: center;"><img alt="" src="https://upload.acmicpc.net/84180fa4-7abb-43e6-91f8-838775bae3a2/-/preview/" style="width: 410px; height: 264px;"></p>
+<p dir="ltr" style="text-align: center;"><img alt="" src="" style="width: 410px; height: 264px;"></p>
 
 <p dir="ltr">시험을 맞아 하이테크관에서 급하게 벼락치기를 하던 도현이는 오늘도 인터넷 연결 없음<strong> </strong>창을 마주하게 되었다!</p>
 
@@ -33,7 +33,7 @@
 
 <p> </p>
 
-<p style="text-align: center;"><img alt="설명적으면나오냐" src="https://upload.acmicpc.net/efb710e9-0893-4e98-af26-f89670b5a4e3/-/preview/" style="width: 500px; height: 214px;"><br>
+<p style="text-align: center;"><img alt="설명적으면나오냐" src="" style="width: 500px; height: 214px;"><br>
 깰 수 없는 맵의 한 예시, 지점 2, 3에 높이가 2인 선인장이 연속해서 등장하기 때문에 공룡은 선인장에 부딪히게 된다.</p>
 
 <p dir="ltr">깰 수 있는 맵의 가짓수를 구해서 도현이의 무료함을 달래주자.</p>
