@@ -1,30 +1,23 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.PriorityQueue;
-import java.util.StringTokenizer;
 
 public class Main {
     static int V, E;
     static int K;
     static List<List<Node>> edges = new ArrayList<>();
-    public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st = new StringTokenizer(br.readLine());
-        V = Integer.parseInt(st.nextToken());
-        E = Integer.parseInt(st.nextToken());
+    public static void main(String[] args) throws Exception {
+        V = read();
+        E = read();
         for (int i = 0; i <= V; i++) {
             edges.add(new ArrayList<>());
         }
-        K = Integer.parseInt(br.readLine());
+        K = read();
         for (int i = 0; i < E; i++) {
-            st = new StringTokenizer(br.readLine());
-            int u = Integer.parseInt(st.nextToken());
-            int v = Integer.parseInt(st.nextToken());
-            int w = Integer.parseInt(st.nextToken());
+            int u = read();
+            int v = read();
+            int w = read();
             edges.get(u).add(new Node(v, w));
         }
 
@@ -54,6 +47,13 @@ public class Main {
             sb.append(dist[i] == Integer.MAX_VALUE ? "INF": dist[i]).append("\n");
         }
         System.out.print(sb);
+    }
+
+    static int read() throws Exception {
+        int c, n = System.in.read() & 15;
+        while ((c = System.in.read()) > 32) n = (n << 3) + (n << 1) + (c & 15);
+        if (c == 13) System.in.read();
+        return n;
     }
 
     static class Node {
