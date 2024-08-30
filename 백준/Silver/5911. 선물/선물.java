@@ -2,7 +2,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
-import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 
 public class Main {
@@ -25,28 +24,24 @@ public class Main {
             int s = Integer.parseInt(st.nextToken());
             arr[i] = new int[]{p, s};
         }
-        int ans = 0;
+        Arrays.sort(arr, (a, b) -> a[0] + a[1] == b[0] + b[1] ? a[1] == b[1] ? Integer.compare(a[0], b[0]) : Integer.compare(a[1], b[1]) : Integer.compare(a[0] + a[1], b[0] + b[1]));
+        int cnt = 0;
+        long max = 0;
         for (int i = 0; i < N; i++) {
-            PriorityQueue<Integer> pq = new PriorityQueue<>();
-            // j한테 쿠폰 사용
-            for (int j = 0; j < N; j++) {
-                if (i == j) {
-                    pq.add(arr[j][0] / 2 + arr[j][1]);
-                } else {
-                    pq.add(arr[j][0] + arr[j][1]);
-                }
-            }
-
-            int cnt = 0;
-            int b = B;
-            while (!pq.isEmpty() && b >= pq.peek()) {
-                b -= pq.poll();
+            int val1 = arr[i][0] + arr[i][1];
+            if (val1 <= B) {
                 cnt++;
+                max = Math.max(max, arr[i][0]);
+                B -= val1;
+            } else {
+                max = Math.max(max, arr[i][0]);
+                if (B + max / 2 >= val1) {
+                    cnt++;
+                }
+                break;
             }
-
-            ans = Math.max(ans, cnt);
         }
-        System.out.println(ans);
+        System.out.println(cnt);
         br.close();
     }
 
