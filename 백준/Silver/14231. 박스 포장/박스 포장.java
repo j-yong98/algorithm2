@@ -21,7 +21,7 @@ public class Main {
             arr[i][1] = Integer.parseInt(st.nextToken());
         }
         Arrays.sort(arr, (a, b)-> a[0] == b[0] ? Integer.compare(a[1], b[1]) : Integer.compare(a[0], b[0]));
-        int[] ans = new int[MAX];
+        int[] ans = new int[MAX + 1];
         Arrays.fill(ans, 1);
         for (int i = 0; i < N; i++) {
             for (int j = i + 1; j < N; j++) {
@@ -30,7 +30,11 @@ public class Main {
                 }
             }
         }
-        System.out.println(Arrays.stream(ans).max().getAsInt());
+        int max = 0;
+        for (int i = 1; i <= MAX; i++) {
+            max = Math.max(max, ans[i]);
+        }
+        System.out.println(max);
         br.close();
     }
 
