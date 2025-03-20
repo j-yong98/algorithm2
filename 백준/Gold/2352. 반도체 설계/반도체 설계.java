@@ -1,27 +1,27 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 class Main {
     static int N;
-    static List<Integer> list = new ArrayList<>();
+    static int[] arr;
+    static int idx = 0;
 
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         N = Integer.parseInt(br.readLine());
+        arr = new int[N];
         StringTokenizer st = new StringTokenizer(br.readLine());
         int max = 0;
         for (int i = 0; i < N; i++) {
             int val = Integer.parseInt(st.nextToken());
             int u = upper(val);
             max = Math.max(max, u + 1);
-            if (u == list.size()) {
-                list.add(val);
+            if (u == idx) {
+                arr[idx++] = val;
             } else {
-                list.remove(u);
-                list.add(u, val);
+                arr[u] = val;
             }
         }
         System.out.println(max);
@@ -29,10 +29,10 @@ class Main {
 
     private static int upper(int k) {
         int l = 0;
-        int r = list.size();
+        int r = idx;
         while (l < r) {
             int mid = (l + r) >> 1;
-            if (list.get(mid) <= k) {
+            if (arr[mid] <= k) {
                 l = mid + 1;
             } else {
                 r = mid;
