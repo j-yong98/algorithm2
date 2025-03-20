@@ -1,21 +1,14 @@
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.util.Arrays;
-import java.util.StringTokenizer;
-
 class Main {
     static int N;
     static int[] arr;
     static int idx = 0;
 
     public static void main(String[] args) throws Exception {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        N = Integer.parseInt(br.readLine());
+        N = read();
         arr = new int[N];
-        StringTokenizer st = new StringTokenizer(br.readLine());
         int max = 0;
         for (int i = 0; i < N; i++) {
-            int val = Integer.parseInt(st.nextToken());
+            int val = read();
             int u = upper(val);
             max = Math.max(max, u + 1);
             if (u == idx) {
@@ -39,5 +32,14 @@ class Main {
             }
         }
         return r;
+    }
+
+    private static int read() throws Exception {
+        int c, n = System.in.read() & 15;
+        while ((c = System.in.read()) >= 48)
+            n = (n << 3) + (n << 1) + (c & 15);
+        if (c == 13)
+            System.in.read();
+        return n;
     }
 }
