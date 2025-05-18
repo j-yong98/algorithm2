@@ -1,9 +1,6 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.StringTokenizer;
 
 public class Main {
@@ -30,17 +27,15 @@ public class Main {
         for (int i = 1; i <= N; i++) {
             sum[i] += sum[i - 1];
         }
-        List<Integer> ans = new ArrayList<>();
+        StringBuilder sb = new StringBuilder();
+        int cnt = 0;
         for (int i = 0; i <= N; i++) {
             if (i == sum[i]) {
-                ans.add(i);
+                cnt++;
+                sb.append(i).append(" ");
             }
         }
-        StringBuilder sb = new StringBuilder();
-        sb.append(ans.size()).append("\n");
-        for (Integer i : ans) {
-            sb.append(i).append(" ");
-        }
+        System.out.println(cnt);
         System.out.println(sb.toString().trim());
     }
 
