@@ -8,4 +8,3 @@ from (
 )
 group by year, month, gender
 order by year, month, gender
-    
